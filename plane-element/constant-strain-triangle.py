@@ -22,8 +22,8 @@ gamma[0]=coordinates[2,0]-coordinates[1,0];
 gamma[1]=coordinates[0,0]-coordinates[2,0];
 gamma[2]=coordinates[1,0]-coordinates[0,0];
 D=numpy.delete(numpy.hstack((numpy.ones((3,2)),coordinates)),0,1);
-A=numpy.linalg.det(0.5*D);
+A=0.5*numpy.linalg.det(D);
 for i in range(0,3):
-    N[i]=alpha[i]+beta[i]*x+gamma[i]*y/(2*A);
+    N[i]=(alpha[i]+beta[i]*x+gamma[i]*y)/(2*A);
 for i in range(0,3):
     sigma_N+=N[i];
